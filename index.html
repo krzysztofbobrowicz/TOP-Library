@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Project</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn" id="addBookBtn">+ Add Book</button>
+      <div class="books-grid" id="booksGrid"></div>
+
+    <div class="modal" id="addBookModal">
+      <form class="add-book-form" id="addBookForm">
+        <h3>Add New Book</h3>
+        <input
+          class="input"
+          type="text"
+          id="title"
+          placeholder="Title"
+          maxlength="100"
+          required
+        />
+        <input
+          type="text"
+          class="input"
+          id="author"
+          placeholder="Author"
+          maxlength="100"
+          required
+        />
+        <input
+        type="number"
+        class="input release_date"
+        id="releaseDate"
+        placeholder="Release Date"
+        max="100000"
+        required
+      />
+        <input
+          type="number"
+          class="input"
+          id="pages"
+          placeholder="Pages"
+          max="100000"
+          required
+        />
+        <input class="btn submit-btn" id="submitBtn" type="submit"></input>
+      </form>
+    </div>
+  </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

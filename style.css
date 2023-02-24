@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input[type='number'] {
+  appearance: textfield; /* textfield also works! */
+}
+
+input[type='number']:focus,
+input[type='number']:hover {
+  appearance: textfield;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 1);
+  font-size: 20px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.book-card > p {
+  margin: 8px 0;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  background: rgba(24, 2, 150, 0.808);
+  height: 100vh;
+}
+
+#booksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-top: 40px;
+  gap: 1rem;
+}
+
+#addBookBtn {
+  padding: 0.8rem;
+  width: 150px;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  color: rgba(24, 2, 150, 0.808);
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+#addBookBtn:hover {
+  color: rgba(24, 2, 150, 1);
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  background-color: rgb(253, 253, 253);
+  color: rgba(24, 2, 150, 0.808);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+form.add-book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: rgba(24, 2, 150, 0.808);
+  text-align: center;
+}
+
+.input::placeholder {
+  color: white;
+}
+
+#submitBtn {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 0.5em;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(24, 2, 150, 0.808);
+  color: #fff;
+}
+
+input {
+  border: 0;
+  outline: none;
+  font-size: 1rem;
+}
+
+.remove_book_btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  line-height: 30px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: none;
+  background-color: black;
+  color: #fff;
+  cursor: pointer;
+}
