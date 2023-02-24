@@ -4,6 +4,7 @@ let submitbtn = document.querySelector('#submitBtn');
 let bookModal = document.querySelector('.modal');
 let submitBookBtn = document.querySelector('#submitBtn');
 let submitBookForm = document.querySelector('#addBookForm');
+let emptyLibraryText = document.querySelector('#emptyLibraryText');
 
 let myLibrary = [
   // Library array
@@ -51,6 +52,7 @@ submitBookForm.addEventListener('submit', e => submitBookToLibrary(e));
 
 function submitBookToLibrary(e) {
   e.preventDefault();
+  bookModal.classList.toggle('active');
   let title = document.querySelector('#title').value;
   let author = document.querySelector('#author').value;
   let releaseDate = document.querySelector('#releaseDate').value;
@@ -92,7 +94,14 @@ function displayBooksOnThePage() {
     newCard.appendChild(pagesPara);
   }
 
-  bookModal.classList.toggle('active');
+  if (myLibrary.length <= 0) {
+    emptyLibraryText.classList.add = 'gfdg';
+    emptyLibraryText.hidden = false;
+  } else {
+    console.log('whwf');
+    emptyLibraryText.hidden = true;
+  }
+
   removeDesiredBook();
 }
 
