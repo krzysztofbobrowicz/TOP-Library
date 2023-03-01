@@ -5,30 +5,10 @@ let bookModal = document.querySelector('.modal');
 let submitBookBtn = document.querySelector('#submitBtn');
 let submitBookForm = document.querySelector('#addBookForm');
 let emptyLibraryText = document.querySelector('#emptyLibraryText');
+let modalBackdrop = document.querySelector('.modal-backdrop');
 
 let myLibrary = [
-  // Library array
-  {
-    title: 'Buszujący w Zbożu',
-    author: 'J.D. Salinger',
-    releaseDate: 1963,
-    pages: 500,
-    index: 0,
-  },
-  {
-    title: 'Harry Potter',
-    author: 'J.K. Rowling',
-    releaseDate: 1992,
-    pages: 380,
-    index: 1,
-  },
-  {
-    title: 'Piraci z Karaibów',
-    author: 'Tui T. Sutherland',
-    releaseDate: 1967,
-    pages: 300,
-    index: 2,
-  },
+  // Library arrary
 ];
 
 function Book(title, author, releaseDate, pages, index) {
@@ -42,10 +22,7 @@ function Book(title, author, releaseDate, pages, index) {
 
 addNewBookBtn.addEventListener('click', function () {
   bookModal.classList.add('active');
-  document.querySelector('#title').value = '';
-  document.querySelector('#author').value = '';
-  document.querySelector('#releaseDate').value = '';
-  document.querySelector('#pages').value = '';
+  modalBackdrop.classList.add('show');
 });
 
 submitBookForm.addEventListener('submit', e => submitBookToLibrary(e));
@@ -53,13 +30,19 @@ submitBookForm.addEventListener('submit', e => submitBookToLibrary(e));
 function submitBookToLibrary(e) {
   e.preventDefault();
   bookModal.classList.toggle('active');
+  modalBackdrop.classList.toggle('show');
   let title = document.querySelector('#title').value;
   let author = document.querySelector('#author').value;
   let releaseDate = document.querySelector('#releaseDate').value;
   let pages = document.querySelector('#pages').value;
   let index = myLibrary.length;
+
   const book = new Book(title, author, releaseDate, pages, index);
   myLibrary.push(book);
+  document.querySelector('#title').value = '';
+  document.querySelector('#author').value = '';
+  document.querySelector('#releaseDate').value = '';
+  document.querySelector('#pages').value = '';
   displayBooksOnThePage();
 }
 
@@ -98,7 +81,6 @@ function displayBooksOnThePage() {
     emptyLibraryText.classList.add = 'gfdg';
     emptyLibraryText.hidden = false;
   } else {
-    console.log('whwf');
     emptyLibraryText.hidden = true;
   }
 
@@ -124,6 +106,7 @@ function checkIfClickedOutside() {
   document.addEventListener('click', function (event) {
     const outsideClick = !bookModal.contains(event.target);
     if (outsideClick && !addNewBookBtn.contains(event.target)) {
+      modalBackdrop.classList.remove('show');
       bookModal.classList.remove('active');
     }
   });
