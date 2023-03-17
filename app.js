@@ -11,13 +11,14 @@ let myLibrary = [
   // Library arrary
 ];
 
-function Book(title, author, releaseDate, pages, index) {
-  // Constructor
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.releaseDate = releaseDate;
-  this.index = index;
+class Book {
+  constructor(title, author, releaseDate, pages, index) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.releaseDate = releaseDate;
+    this.index = index;
+  }
 }
 
 addNewBookBtn.addEventListener('click', function () {
